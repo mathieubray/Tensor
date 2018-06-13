@@ -49,7 +49,7 @@ fastHALS <- function(Y, A, tol=1e-5, max_k=10000){
         
         b <- A[[n]][,j] * gamma[j] + T.2[,j] - A[[n]] %*% T.3[,j]
         
-        b <- ifelse(b>0,b,0)
+        b <- ifelse(b>0,b,1e-5)
         
         if (n != N){
           b <- b %>% normalize.matrix.columns
